@@ -4,4 +4,6 @@
     <string name="recovered">Recovered</string>
     <string name="all">ALL</string>
     <string name="world">WORLD</string>
+    <string name="search_country">Search Country</string>
+    <string name="company_name">WHITE SIDE DEV</string>
 </resources>
