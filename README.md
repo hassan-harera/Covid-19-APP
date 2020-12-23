@@ -1,3 +1,3 @@
 #Covid-19-Tracker-App Demo 
 
-![](Covid 19 APP Demo.gif)
+![GIF DEMO](https://imgur.com/a/DMeJC30.gif)
