@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SearchCountry">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="42sp"
+            app:ccp_textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="68dp"
+            app:ccp_defaultLanguage="ENGLISH"
+            app:ccp_defaultPhoneCode="20"
+            app:ccp_showFullName="true"
+            app:ccp_showPhoneCode="false" />
+
+        <ImageView
+            android:layout_width="42sp"
+            android:layout_height="42sp"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="68dp"
+            android:layout_toEndOf="@+id/country_picker"
+            android:src="@drawable/covid_logo" />
+
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="168sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/all_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4sp"
+                android:letterSpacing="0.12"
+                android:text="@string/all"
+                android:textColor="#3A17E3"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/all_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4sp"
+                android:textColor="#3C3737"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll1"
+            android:layout_marginTop="100sp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4sp"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginTop="318sp"
+                    android:letterSpacing="0.09"
+                    android:text="@string/recovered"
+                    android:textColor="#34A33C"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/recovered_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="4sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginTop="5sp"
+                    android:textColor="#3C3737"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4sp"
+                    android:layout_marginStart="80sp"
+                    android:layout_marginTop="318sp"
+                    android:letterSpacing="0.11"
+                    android:text="@string/deaths"
+                    android:textColor="#E11515"
+                    android:textSize="24sp" />
+
+
+                <TextView
+                    android:id="@+id/deaths_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="4sp"
+                    android:layout_marginStart="95sp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3C3737"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100sp"
+            android:background="@drawable/button_selector"
+            android:onClick="backClicked"
+            android:text="Back"
+            android:textColor="#FFF" />
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <ImageView
+        android:layout_width="192sp"
+        android:layout_height="192sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="120sp"
+        android:src="@drawable/covid_logo" />
+
+
+    <TextView
+        android:id="@+id/covid_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="420dp"
+        android:text="COVID 19"
+        android:textColor="#736DD9"
+        android:textSize="29dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="21sp"
+        android:layout_below="@id/covid_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210sp"
+        android:letterSpacing="0.2"
+        android:text="White Side DEV"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
