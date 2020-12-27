@@ -1,4 +1,4 @@
-#Covid-19-Tracker-App Demo 
+#Covid 19 Tracker App Demo 
 
-<img src="https://imgur.com/a/DMeJC30.gif"/>
-
+### Using Covid 19 cases tracker API
+<img src="Covid 19 APP Demo.gif"/>
