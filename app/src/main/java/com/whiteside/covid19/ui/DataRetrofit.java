@@ -1,6 +1,8 @@
 package com.whiteside.covid19.ui;
 
+import com.whiteside.covid19.model.CountryData;
 import com.whiteside.covid19.model.Data;
+import com.whiteside.covid19.model.WorldData;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -10,16 +12,15 @@ public class DataRetrofit {
 
     private static final String BASE_URL = "https://disease.sh/v3/covid-19/";
     private static DataRetrofit INSTANCE;
-    private Retrofit retrofit;
-    private APIActions actions;
+    private CovidAPI covidAPI;
 
     private DataRetrofit() {
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        actions = retrofit.create(APIActions.class);
+        covidAPI = retrofit.create(CovidAPI.class);
     }
 
     public static DataRetrofit getInstance() {
@@ -29,11 +30,11 @@ public class DataRetrofit {
         return INSTANCE;
     }
 
-    public Call<Data> getWorldData(){
-        return actions.getWorldData();
+    public Call<WorldData> getWorldData(){
+        return covidAPI.getWorldData();
     }
 
-    public Call<Data> getCountryData(String countryName){
-        return actions.getCountryData(countryName);
+    public Call<CountryData> getCountryData(String countryName){
+        return covidAPI.getCountryData(countryName);
     }
 }

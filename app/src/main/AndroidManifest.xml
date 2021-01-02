@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".ui.SearchCountry"></activity>
-        <activity android:name=".ui.HomePage" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.country.CountryActivity"></activity>
+        <activity android:name=".ui.world.WorldActivity" />
+        <activity android:name=".ui.launcher.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
