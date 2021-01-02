@@ -12,37 +12,51 @@ import android.widget.TextView;
 
 import com.whiteside.covid19.R;
 import com.whiteside.covid19.model.Data;
+import com.whiteside.covid19.ui.StatisticsDialogFragment;
 import com.whiteside.covid19.ui.country.CountryActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class WorldActivity extends AppCompatActivity {
 
-    private TextView all, deaths, recovered;
-    private SwipeRefreshLayout refresh;
+    @BindView
+   (R.id.all_cases) TextView all;
+    @BindView
+   (R.id.deaths_cases) TextView deaths;
+    @BindView
+   (R.id.recovered_cases) TextView recovered;
+    @BindView
+   (R.id.refresh) SwipeRefreshLayout refresh;
     private WorldViewModel viewModel;
+    private Data worldData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_world);
 
-        all = findViewById(R.id.all_cases);
-        deaths = findViewById(R.id.deaths_cases);
-        recovered = findViewById(R.id.recovered_cases);
-        refresh = findViewById(R.id.refresh);
+        ButterKnife.bind(this);
 
+        observeData();
+
+        viewModel.getWorldData();
+
+        setRefreshListener();
+    }
+
+    private void observeData() {
         viewModel = ViewModelProviders.of(this).get(WorldViewModel.class);
         viewModel.dataMutableLiveData.observe(this, new Observer<Data>() {
             @Override
             public void onChanged(Data data) {
+                worldData = data;
                 all.setText(String.valueOf(data.cases));
                 deaths.setText(String.valueOf(data.deaths));
                 recovered.setText(String.valueOf(data.recovered));
                 refresh.setRefreshing(false);
             }
         });
-
-        viewModel.getWorldData();
-        setRefreshListener();
     }
 
     private void setRefreshListener() {
@@ -57,5 +71,10 @@ public class WorldActivity extends AppCompatActivity {
     public void searchClicked(View view) {
         Intent intent = new Intent(this, CountryActivity.class);
         startActivity(intent);
+    }
+
+    public void moreInfoCLicked(View view) {
+        StatisticsDialogFragment fragment = new StatisticsDialogFragment(worldData);
+        fragment.show(getSupportFragmentManager(), "Statistics");
     }
 }

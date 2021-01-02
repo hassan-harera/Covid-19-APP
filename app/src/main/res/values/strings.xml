@@ -1,9 +1,34 @@
 <resources>
     <string name="app_name">Covid 19</string>
-    <string name="deaths">Deaths</string>
-    <string name="recovered">Recovered</string>
+
     <string name="all">ALL</string>
     <string name="world">WORLD</string>
     <string name="search_country">Search Country</string>
     <string name="company_name">WHITE SIDE DEV</string>
+    <string name="more_statistics">More Statistics</string>
+
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
+    <string name="cases">Cases</string>
+    <string name="updated">Updated</string>
+    <string name="todayRecovered">Today Recovered Cases</string>
+    <string name="active">Active Cases</string>
+    <string name="population">Critical Cases</string>
+    <string name="critical">Critical Cases</string>
+    <string name="todayCases">Today Cases</string>
+    <string name="tests">Tests</string>
+    <string name="casesPerOneMillion">Cases Per One Million</string>
+    <string name="todayDeaths">Today Deaths</string>
+    <string name="deathsPerOneMillion">Deaths Per One Million</string>
+    <string name="criticalPerOneMillion">Critical Per One Million</string>
+    <string name="activePerOneMillion">Active Per One Million</string>
+    <string name="recoveredPerOneMillion">Recovered Per One Million</string>
+    <string name="testsPerOneMillion">Tests Per One Million</string>
+    <string name="oneCasePerPeople">One Case Per People</string>
+    <string name="oneDeathPerPeople">One Death Per People</string>
+    <string name="oneTestPerPeople">One Test Per People</string>
+    <string name="country">Country</string>
+    <string name="continent">Continent</string>
+    <string name="affectedCountries">Affected Countries</string>
+
 </resources>

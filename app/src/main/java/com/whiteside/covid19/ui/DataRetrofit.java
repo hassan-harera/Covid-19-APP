@@ -1,8 +1,7 @@
 package com.whiteside.covid19.ui;
 
-import com.whiteside.covid19.model.CountryData;
+
 import com.whiteside.covid19.model.Data;
-import com.whiteside.covid19.model.WorldData;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -30,11 +29,11 @@ public class DataRetrofit {
         return INSTANCE;
     }
 
-    public Call<WorldData> getWorldData(){
+    public Call<Data> getWorldData(){
         return covidAPI.getWorldData();
     }
 
-    public Call<CountryData> getCountryData(String countryName){
+    public Call<Data> getCountryData(String countryName){
         return covidAPI.getCountryData(countryName);
     }
 }

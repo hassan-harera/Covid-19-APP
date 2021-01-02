@@ -12,60 +12,66 @@ import android.widget.TextView;
 import com.hbb20.CountryCodePicker;
 import com.whiteside.covid19.R;
 import com.whiteside.covid19.model.Data;
-import com.whiteside.covid19.ui.world.WorldViewModel;
+import com.whiteside.covid19.ui.StatisticsDialogFragment;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CountryActivity extends AppCompatActivity {
 
-    private static final String TAG = "SearchCountry";
-    private TextView all, deaths, recovered;
-    private CountryCodePicker picker;
-    private SwipeRefreshLayout refresh;
+    @BindView(R.id.all_cases)
+    TextView all;
+    @BindView(R.id.deaths_cases)
+    TextView deaths;
+    @BindView(R.id.recovered_cases)
+    TextView recovered;
+    @BindView(R.id.refresh)
+    SwipeRefreshLayout refresh;
+    @BindView(R.id.country_picker)
+    CountryCodePicker picker;
     private CountryViewModel viewModel;
+    private Data data;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_country);
+        setContentView(R.layout.activity_country);
 
-        picker = findViewById(R.id.country_picker);
-        all = findViewById(R.id.all_cases);
-        deaths = findViewById(R.id.deaths_cases);
-        recovered = findViewById(R.id.recovered_cases);
-        refresh = findViewById(R.id.refresh);
+        ButterKnife.bind(this);
 
-        viewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
-        viewModel.dataMutableLiveData.observe(this, new Observer<Data>() {
-            @Override
-            public void onChanged(Data data) {
-                all.setText(String.valueOf(data.cases));
-                deaths.setText(String.valueOf(deaths));
-                recovered.setText(String.valueOf(data.recovered));
-                refresh.setRefreshing(false);
-            }
-        });
+        observeData();
         viewModel.getCountryData(picker.getSelectedCountryName());
 
-        picker.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
-            @Override
-            public void onCountrySelected() {
-                viewModel.getCountryData(picker.getSelectedCountryName());
-            }
-        });
-
         setRefreshListener();
+        setPickerListener();
+    }
+
+    private void observeData() {
+        viewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
+        viewModel.dataMutableLiveData.observe(this, data -> {
+            CountryActivity.this.data = data;
+            all.setText(String.valueOf(data.cases));
+            deaths.setText(String.valueOf(data.deaths));
+            recovered.setText(String.valueOf(data.recovered));
+            refresh.setRefreshing(false);
+        });
+    }
+
+    private void setPickerListener() {
+        picker.setOnCountryChangeListener(() -> viewModel.getCountryData(picker.getSelectedCountryName()));
     }
 
     private void setRefreshListener() {
-        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                viewModel.getCountryData(picker.getSelectedCountryName());
-            }
-        });
+        refresh.setOnRefreshListener(() -> viewModel.getCountryData(picker.getSelectedCountryName()));
     }
 
     public void backClicked(View view) {
         finish();
+    }
+
+    public void moreInfoCLicked(View view) {
+        StatisticsDialogFragment fragment = new StatisticsDialogFragment(data);
+        fragment.show(getSupportFragmentManager(), "Statistics");
     }
 }

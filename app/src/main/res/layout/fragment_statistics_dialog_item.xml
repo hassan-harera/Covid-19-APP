@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40sp"
+    android:background="?attr/selectableItemBackground"
+    android:padding="@dimen/list_item_spacing_all"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large">
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/item_text_view_spacing_all"
+        android:text="1805545"
+        android:textColor="#E11515"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/key"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/item_text_view_spacing_all"
+        android:text="Tests Per Day"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</RelativeLayout>
+    

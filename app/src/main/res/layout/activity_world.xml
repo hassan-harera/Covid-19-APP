@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.country.CountryActivity">
+    tools:context=".ui.world.WorldActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.hbb20.CountryCodePicker
-            android:id="@+id/country_picker"
+        <TextView
+            android:id="@+id/world_text"
             android:layout_width="wrap_content"
             android:layout_height="42sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="62dp"
-            app:ccp_defaultLanguage="ENGLISH"
-            app:ccp_defaultPhoneCode="20"
-            app:ccp_showFullName="true"
-            app:ccp_showPhoneCode="false"
-            app:ccp_textSize="20sp" />
+            android:letterSpacing="0.3"
+            android:text="@string/world"
+            android:textColor="#000"
+            android:textSize="29sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="42sp"
             android:layout_height="42sp"
-            android:layout_marginStart="5sp"
+            android:layout_marginStart="12sp"
             android:layout_marginTop="62sp"
-            android:layout_toEndOf="@+id/country_picker"
+            android:layout_toEndOf="@+id/world_text"
             android:src="@drawable/covid_logo" />
 
 
@@ -136,17 +135,39 @@
             </LinearLayout>
         </RelativeLayout>
 
+
         <Button
+            android:id="@+id/more_statistics_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rl1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100sp"
+            android:layout_marginTop="60sp"
             android:background="@drawable/round_btn"
-            android:onClick="backClicked"
+            android:gravity="center"
+            android:onClick="moreInfoCLicked"
             android:padding="10sp"
-            android:text="Back"
+            android:text="@string/more_statistics"
             android:textColor="#220E83"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/country_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/more_statistics_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/round_btn"
+            android:gravity="center"
+            android:onClick="searchClicked"
+            android:padding="10sp"
+            android:text="@string/search_country"
+            android:textColor="#220E83"
+            android:textSize="16sp" />
+
+
     </RelativeLayout>
+
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
