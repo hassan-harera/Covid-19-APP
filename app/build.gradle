@@ -53,4 +53,7 @@ dependencies {
     //ButterKnife
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    //animation
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 }

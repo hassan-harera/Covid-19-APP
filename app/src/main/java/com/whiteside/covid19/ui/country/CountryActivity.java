@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.hbb20.CountryCodePicker;
 import com.whiteside.covid19.R;
 import com.whiteside.covid19.model.Data;
@@ -55,7 +57,26 @@ public class CountryActivity extends AppCompatActivity {
             deaths.setText(String.valueOf(data.deaths));
             recovered.setText(String.valueOf(data.recovered));
             refresh.setRefreshing(false);
+
+            startAnimation();
         });
+    }
+
+    private void startAnimation() {
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(all);
+
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(deaths);
+
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(recovered);
     }
 
     private void setPickerListener() {

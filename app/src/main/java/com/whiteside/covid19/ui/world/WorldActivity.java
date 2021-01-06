@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.whiteside.covid19.R;
 import com.whiteside.covid19.model.Data;
 import com.whiteside.covid19.ui.StatisticsDialogFragment;
@@ -21,13 +23,17 @@ import butterknife.ButterKnife;
 public class WorldActivity extends AppCompatActivity {
 
     @BindView
-   (R.id.all_cases) TextView all;
+            (R.id.all_cases)
+    TextView all;
     @BindView
-   (R.id.deaths_cases) TextView deaths;
+            (R.id.deaths_cases)
+    TextView deaths;
     @BindView
-   (R.id.recovered_cases) TextView recovered;
+            (R.id.recovered_cases)
+    TextView recovered;
     @BindView
-   (R.id.refresh) SwipeRefreshLayout refresh;
+            (R.id.refresh)
+    SwipeRefreshLayout refresh;
     private WorldViewModel viewModel;
     private Data worldData;
 
@@ -55,8 +61,27 @@ public class WorldActivity extends AppCompatActivity {
                 deaths.setText(String.valueOf(data.deaths));
                 recovered.setText(String.valueOf(data.recovered));
                 refresh.setRefreshing(false);
+
+                startAnimation();
             }
         });
+    }
+
+    private void startAnimation() {
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(all);
+
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(deaths);
+
+        YoYo.with(Techniques.Tada)
+                .duration(700)
+                .repeat(1)
+                .playOn(recovered);
     }
 
     private void setRefreshListener() {
